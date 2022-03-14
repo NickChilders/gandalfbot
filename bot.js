@@ -65,12 +65,18 @@ if (message.substring(0, 1) == '!') {
         case 'Gandalf?':
             bot.sendMessage({
                 to: channelID,
-                message: "Gandalf? Oh yes... That's what thay would call me. Gandalf the Gray. That was my name...*I* am Gandalf the white."
+                message: "Gandalf? Oh yes... That's what they would call me. Gandalf the Gray. That was my name...*I* am Gandalf the white."
             });
             bot.uploadFile({
                 to: channelID,
                 file: 'Gandalf_White.png',
                 message: 'And I come back you now - at the turn of the tide.'
+            });
+            break;
+        case 'Take it':
+            bot.uploadFile({
+                to: channelID,
+                file: 'DontFrodo.gif'
             });
         break;
 
