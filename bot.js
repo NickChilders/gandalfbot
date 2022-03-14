@@ -62,6 +62,7 @@ if (message.substring(0, 1) == '!') {
                 file: 'Balrog.png'
             });
         break;
+        //!Gandalf?
         case 'Gandalf?':
             bot.sendMessage({
                 to: channelID,
@@ -73,7 +74,8 @@ if (message.substring(0, 1) == '!') {
                 message: 'And I come back you now - at the turn of the tide.'
             });
             break;
-        case 'Take it':
+        // !Take-it
+        case 'Take-it':
             bot.uploadFile({
                 to: channelID,
                 file: 'DontFrodo.gif'
