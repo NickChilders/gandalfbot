@@ -9,6 +9,10 @@
     "main": "bot.js",
     
     "author": "Nick Childers",
+    
+    "scripts": {
+        "start": "node index.js"
+    },
 
     "dependencies": {
 
