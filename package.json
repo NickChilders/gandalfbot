@@ -1,0 +1,22 @@
+{
+
+    "name": "greeter-bot",
+
+    "version": "1.0.0",
+
+    "description": "This Bot Spews out random Gandalf quotes",
+
+    "main": "bot.js",
+
+    "author": "Nick Childers",
+
+    "dependencies": {
+
+        "discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6",
+
+        "winston": "^3.6.0"
+
+    }
+
+}
+
