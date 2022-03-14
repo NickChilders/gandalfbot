@@ -63,9 +63,12 @@ if (message.substring(0, 1) == '!') {
             });
         break;
         case 'Gandalf?':
+            bot.sendMessage({
+                to: channelID,
+                message: 'Gandalf? Oh yes... Thats what thay would call me. Gandalf the Gray. That was my name...*I* am Gandalf the white.'
+            });
             bot.uploadFile({
                 to: channelID,
-                message: 'Gandalf? Oh yes... Thats what thay would call me. Gandalf the Gray. That was my name...*I* am Gandalf the white.',
                 file: 'Gandalf_White.png',
                 message: 'And I come back you now - at the turn of the tide.'
             });
