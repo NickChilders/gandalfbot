@@ -65,7 +65,7 @@ if (message.substring(0, 1) == '!') {
         case 'Gandalf?':
             bot.sendMessage({
                 to: channelID,
-                message: 'Gandalf? Oh yes... Thats what thay would call me. Gandalf the Gray. That was my name...*I* am Gandalf the white.'
+                message: "Gandalf? Oh yes... That's what thay would call me. Gandalf the Gray. That was my name...*I* am Gandalf the white."
             });
             bot.uploadFile({
                 to: channelID,
