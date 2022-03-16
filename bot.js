@@ -81,7 +81,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 });
             break;
             default:
-                cmd.join(" ");    
+                args.join(" ");    
                 const newArgs = cmd.split(/ +/);
                 const searchTopic = newArgs.join('+')
                 let googleResult = `https://google.com/search?q=${searchTopic}`
