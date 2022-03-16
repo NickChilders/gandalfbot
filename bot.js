@@ -85,15 +85,20 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     to: channelID,
                     file: 'GandalfGoogle.png'
                 });
-                const NewArgs = message.content.slice(cmd.length).split(/ +/);
+                bot.sendMessage({
+                    to: channelID,
+                    message: "What do you want me to google?"
+                });
+                
+                var NewArgs = message.content.slice(message.length).split(/ +/);
 
-                const searchTopic = NewArgs.join('+').slice(1)
+                var searchTopic = NewArgs.join('+').slice(1)
                 let googleResult = `https://google.com/search?q=${searchTopic}`
 
                 let searchEmbed = new Discord.MessageEmbed()
                 .setColor("#00ff00")
                 .setDescription(`Here's what Google came up with for ${searchTopic}!\n${googleResult}`)
-                  message.channel.send(searchEmbed)
+                message.channel.send(searchEmbed)
             break;
             // Just add any case commands if you want to..
         }
