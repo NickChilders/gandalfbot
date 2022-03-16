@@ -80,27 +80,25 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     file: 'DontFrodo.gif'
                 });
             break;
-            default:  
-               const newArgs = cmd.split(/ +/);
-               const searchTopic = newArgs.join('+')
-               let googleResult = `https://google.com/search?q=${searchTopic}`
-               var data = {
+            default:
+                cmd.join(" ");    
+                const newArgs = cmd.split(/ +/);
+                const searchTopic = newArgs.join('+')
+                let googleResult = `https://google.com/search?q=${searchTopic}`
+                var data = {
                 to: channelID,
                 message: "Here's what Google came up with:",
                 embed: {
-                  title: searchTopic,
-                  description: googleResult,
-                  url: googleResult,
-                  color: 7121033,
-                  thumbnail: {
-                    file: 'GandalfGoogle.png'
-                  },
-                  image: {
-                    url: googleResult
-                  }
+                    title: searchTopic,
+                    description: googleResult,
+                    url: googleResult,
+                    color: 7121033,
+                    image: {
+                        url: `https://i.imgur.com/ZxoJhn7.jpg`
+                    }
                 }
-              };
-              bot.sendMessage(data);
+            };
+            bot.sendMessage(data);
         }
         
     }
