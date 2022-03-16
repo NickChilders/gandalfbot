@@ -93,7 +93,8 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                .setDescription(`Here's what Google came up with for ${searchTopic}!\n${googleResult}`);
                bot.sendMessage({
                     to: channelID, 
-                    message: "",searchEmbed
+                    message: "",
+                    embeds: searchEmbed
                });
         }
         
