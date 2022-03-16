@@ -96,6 +96,17 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     message: "",
                     embeds: searchEmbed
                });
+               var data = {
+                to: channelID,
+                message: "Here's what Google came up with:",
+                embed: {
+                  title: searchTopic,
+                  description: googleResult,
+                  url: googleResult,
+                  color: 7121033
+                }
+              };
+              bot.sendMessage(data);
         }
         
     }
