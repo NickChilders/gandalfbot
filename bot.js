@@ -81,24 +81,24 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 });
             break;
             default:
-                args.join(" ");    
-                const newArgs = cmd.split(/ +/);
-                const searchTopic = newArgs.join('+')
+                const newArg = message.replace(/!/,"");
+                const searchTopic = newArg.replace(/ /g,'+');
                 let googleResult = `https://google.com/search?q=${searchTopic}`
+                
                 var data = {
-                to: channelID,
-                message: "Here's what Google came up with:",
-                embed: {
-                    title: searchTopic,
-                    description: googleResult,
-                    url: googleResult,
-                    color: 7121033,
-                    image: {
-                        url: `https://i.imgur.com/ZxoJhn7.jpg`
+                    to: channelID,
+                    message: "...",
+                    embed: {
+                        title: "Here's what Google came up with:",
+                        description: newArg,
+                        url: googleResult,
+                        color: 7121033,
+                        image: {
+                            url: `https://i.imgur.com/ZxoJhn7.jpg`
+                        }
                     }
-                }
-            };
-            bot.sendMessage(data);
+                };
+                bot.sendMessage(data);
         }
         
     }
