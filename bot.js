@@ -1,6 +1,7 @@
 var Discord = require('discord.io');
 var logger = require('winston');
 var auth = require('./auth.json');
+const { MessageEmbed } = require('discord.js');
 // Configure logger settings
 logger.remove(logger.transports.Console);
 logger.add(new logger.transports.Console, {
@@ -22,10 +23,9 @@ logger.info(bot.username + ' - (' + bot.id + ')');
 
 
 
-
 bot.on('message', function (user, userID, channelID, message, evt) {
 
-    // Our bot needs to know if it will execute a command
+     // Our bot needs to know if it will execute a command
     // It will listen for messages that will start with `!`
     if (message.substring(0, 1) == '!') {
         var args = message.substring(1).split(' ');
@@ -80,23 +80,18 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     file: 'DontFrodo.gif'
                 });
             break;
-            case 'Gandalf-Google':
-                bot.uploadFile({
+            default:  
+               bot.uploadFile({
                     to: channelID,
                     file: 'GandalfGoogle.png'
-                });
-                const newArgs = message.content.slice(cmd.length).split(' ');
-                const searchTopic = newArgs.join('+').slice(1)
-                let googleResult = `https://google.com/search?q=${searchTopic}`
-                let searchEmbed = new Discord.MessageEmbed()
-                .setColor("#00ff00")
-                .setDescription(`Here's what Google came up with for ${searchTopic}!\n${googleResult}`)
-                bot.sendMessage({
-                    to: cahnnelID,
-                    message: searchEmbed
-                });
-            break;
-            // Just add any case commands if you want to..
+               });
+               const newArgs = cmd.split(/ +/);
+               const searchTopic = newArgs.join('+')
+               let googleResult = `https://google.com/search?q=${searchTopic}`
+               let searchEmbed = new Discord.MessageEmbed()
+               .setColor("#00ff00")
+               .setDescription(`Here's what Google came up with for ${searchTopic}!\n${googleResult}`)
+               message.channel.send({embeds: [searchEmbed]});
         }
     }
 
