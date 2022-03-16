@@ -27,9 +27,14 @@ logger.info(bot.username + ' - (' + bot.id + ')');
 
 bot.on('message', function (user, userID, channelID, message, evt) {
 
-    // Our bot needs to know if it will execute a command
+     // Our bot needs to know if it will execute a command
     // It will listen for messages that will start with `!`
-    if (message.content == prefix) {
+    if (message.substring(0, 1) == '!') {
+        var args = message.substring(1).split(' ');
+        var cmd = args[0];
+
+        args = args.splice(1);
+
         // Array list of replies
         let replies = [ "For though much has been saved, much must now pass away",
                         "For the time comes of the Dominion of Men, and the Elder Kindred shall fade or depart.", 
@@ -39,38 +44,18 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                         "Only a small part is played in great deeds by any hero.",
                         "I will not say: do not weep; for not all tears are an evil."
         ];
-        // Random number from 0 to 7 for the array index
+        // Random number from 0 to 3 for the array index
         let random = Math.floor(Math.random() * 7);
-        bot.sendMessage({
+
+        switch(cmd) {
+
+            // !Gandalf
+            case 'Gandalf':
+                bot.sendMessage({
                     to: channelID,
                     message: replies[random]
                 });
-        return;
-    }
-    if (message.content.startsWith(preG)){
-        bot.uploadFile({
-            to: channelID,
-            file: 'GandalfGoogle.png'
-        });
-        var NewArgs = message.content.slice(preG.length).split(/ +/);
-
-        var searchTopic = NewArgs.join('+').slice(1)
-        let googleResult = `https://google.com/search?q=${searchTopic}`
-
-        let searchEmbed = new Discord.MessageEmbed()
-        .setColor("#00ff00")
-        .setDescription(`Here's what Google came up with for ${searchTopic}!\n${googleResult}`)
-        message.channel.send(searchEmbed)
-        
-        return;
-    }
-    if (message.substring(0, 1) == '!') {
-        var args = message.substring(1).split(' ');
-        var cmd = args[0];
-
-        args = args.splice(1);
-
-        switch(cmd) {
+            break;
             // !Balrog
             case 'Balrog':
                 bot.uploadFile({
@@ -95,6 +80,12 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 bot.uploadFile({
                     to: channelID,
                     file: 'DontFrodo.gif'
+                });
+            break;
+            case 'Gandalf-Google':
+                bot.uploadFile({
+                    to: channelID,
+                    file: 'GandalfGoogle.png'
                 });
             break;
             // Just add any case commands if you want to..
