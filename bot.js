@@ -91,11 +91,9 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                const searchEmbed = new MessageEmbed()
                .setColor("#00ff00")
                .setDescription(`Here's what Google came up with for ${searchTopic}!\n${googleResult}`);
-               bot.sendMessage({
-                   to: channelID,
-                   embeds: [searchEmbed]
-               })
+               message.channelID.send({embeds: [searchEmbed]});
         }
+        
     }
 
 });
