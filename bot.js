@@ -91,7 +91,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                let searchEmbed = new Discord.MessageEmbed()
                .setColor("#00ff00")
                .setDescription(`Here's what Google came up with for ${searchTopic}!\n${googleResult}`)
-               message.channel.send(searchEmbed)
+               message.channel.send({embeds: [searchEmbed]});
         }
     }
 
