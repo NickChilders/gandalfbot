@@ -81,21 +81,9 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 });
             break;
             default:  
-               bot.uploadFile({
-                    to: channelID,
-                    file: 'GandalfGoogle.png'
-               });
                const newArgs = cmd.split(/ +/);
                const searchTopic = newArgs.join('+')
                let googleResult = `https://google.com/search?q=${searchTopic}`
-               const searchEmbed = new MessageEmbed()
-               .setColor("#00ff00")
-               .setDescription(`Here's what Google came up with for ${searchTopic}!\n${googleResult}`);
-               bot.sendMessage({
-                    to: channelID, 
-                    message: "",
-                    embeds: searchEmbed
-               });
                var data = {
                 to: channelID,
                 message: "Here's what Google came up with:",
@@ -103,7 +91,13 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                   title: searchTopic,
                   description: googleResult,
                   url: googleResult,
-                  color: 7121033
+                  color: 7121033,
+                  thumbnail: {
+                    file: 'GandalfGoogle.png'
+                  },
+                  image: {
+                    url: googleResult
+                  }
                 }
               };
               bot.sendMessage(data);
