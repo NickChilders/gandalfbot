@@ -21,7 +21,6 @@ logger.info('Logged in as: ');
 logger.info(bot.username + ' - (' + bot.id + ')');
 });
 
-var isPaused = false;
 
 
 bot.on('message', function (user, userID, channelID, message, evt) {
@@ -81,24 +80,19 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     file: 'DontFrodo.gif'
                 });
             break;
-            default:
-               isPaused = true;   
-               bot.uploadFile({
+            default:  
+               bot.sendMessage({
                     to: channelID,
                     file: 'GandalfGoogle.png'
                });
-               isPaused = false;
-               if(!isPaused){
-                    const newArgs = cmd.split(/ +/);
-                    const searchTopic = newArgs.join('+')
-                    let googleResult = `https://google.com/search?q=${searchTopic}`
-                    let mesRes = "Here's what Google came up with for: " + googleResult;
-                    bot.sendMessage({
-                         to: channelID,
-                         message: mesRes
-                    });
-               }
-               // Just add any case commands if you want to..
+               const newArgs = cmd.split(/ +/);
+               const searchTopic = newArgs.join('+')
+               let googleResult = `https://google.com/search?q=${searchTopic}`
+               let mesRes = "Here's what Google came up with for: " + googleResult;
+               bot.sendMessage({
+                    to: channelID,
+                    message: mesRes
+               });
         }
     }
 
