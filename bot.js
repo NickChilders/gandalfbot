@@ -1,7 +1,7 @@
 var Discord = require('discord.io');
 var logger = require('winston');
 var auth = require('./auth.json');
-
+const { MessageEmbed } = require('discord.io');
 // Configure logger settings
 logger.remove(logger.transports.Console);
 logger.add(new logger.transports.Console, {
@@ -81,18 +81,17 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 });
             break;
             default:  
-               bot.sendMessage({
+               bot.uploadFile({
                     to: channelID,
                     file: 'GandalfGoogle.png'
                });
                const newArgs = cmd.split(/ +/);
                const searchTopic = newArgs.join('+')
                let googleResult = `https://google.com/search?q=${searchTopic}`
-               let mesRes = "Here's what Google came up with for: " + googleResult;
-               bot.sendMessage({
-                    to: channelID,
-                    message: mesRes
-               });
+               let searchEmbed = new Discord.MessageEmbed()
+               .setColor("#00ff00")
+               .setDescription(`Here's what Google came up with for ${searchTopic}!\n${googleResult}`)
+               message.channel.send(searchEmbed)
         }
     }
 
