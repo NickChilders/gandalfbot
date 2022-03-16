@@ -85,7 +85,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     to: channelID,
                     file: 'GandalfGoogle.png'
                 });
-                const newArgs = cmd.slice(cmd.length).split(' ');
+                const newArgs = cmd.length.split(' ');
                 const searchTopic = newArgs.join('+').slice(1)
                 let googleResult = `https://google.com/search?q=${searchTopic}`
                 let searchEmbed = new Discord.MessageEmbed()
