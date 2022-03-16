@@ -80,7 +80,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     file: 'DontFrodo.gif'
                 });
             break;
-            case 'Gandalf-Goole':
+            case 'Gandalf-Google':
                 bot.uploadFile({
                     to: channelID,
                     file: 'GandalfGoogle.png'
