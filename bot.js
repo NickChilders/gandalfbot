@@ -44,7 +44,6 @@ bot.on('message', function (user, userID, channelID, message, evt) {
         ];
         // Random number from 0 to 3 for the array index
         let random = Math.floor(Math.random() * 7);
-
         switch(cmd) {
 
             // !Gandalf
@@ -80,17 +79,17 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     file: 'DontFrodo.gif'
                 });
             break;
-            default:
-                const newArg = message.replace(/!/,"");
+            case 'Gandalf-Google':
+                const newArg = message.replace(/!Gandalf-Google/,"");
                 const searchTopic = newArg.replace(/ /g,'+');
                 let googleResult = `https://google.com/search?q=${searchTopic}`
-                
+                let des =  `Here's what Google brought up for ${newArg}`
                 var data = {
                     to: channelID,
-                    message: "...",
+                    message: "",
                     embed: {
-                        title: "Here's what Google came up with:",
-                        description: newArg,
+                        title: "Hold on, let me Google that for you...",
+                        description: des,
                         url: googleResult,
                         color: 7121033,
                         image: {
