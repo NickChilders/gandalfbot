@@ -103,11 +103,11 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             break;
             case 'help':
                 let helpMes =  `Commands:\n
-                                !Gandalf\tRandom Gandalf quote.\n
-                                !Balrog\tGandalf quote and illustration.\n
-                                !Take-it\tGandalf GIF.\n
-                                !Gandalf?\tGandalf quote and picture from film.\n
-                                !Gandalf-Google <user input>\tEmbedded link to Google 
+                                !Gandalf -\tRandom Gandalf quote.\n
+                                !Balrog -\tGandalf quote and illustration.\n
+                                !Take-it -\tGandalf GIF.\n
+                                !Gandalf? -\tGandalf quote and picture from film.\n
+                                !Gandalf-Google <user input> -\tEmbedded link to Google 
                                 search results for user input.\n`
                 bot.sendMessage({
                     to: channelID,
