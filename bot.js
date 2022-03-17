@@ -40,10 +40,12 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                         "My time is over; it is no longer my task to set things to rights, nor to help folk to do so.",
                         "You are grown up now. Grown indeed very high; among the great you are, and I have no longer any fear at all for any of you.", 
                         "Only a small part is played in great deeds by any hero.",
-                        "I will not say: do not weep; for not all tears are an evil."
+                        "I will not say: do not weep; for not all tears are an evil.",
+                        "Fool of a Took! Throw yourself in next time and rid us of your stupidity!",
+                        "It will be very good for you, and most amusing for me."
         ];
-        // Random number from 0 to 3 for the array index
-        let random = Math.floor(Math.random() * 7);
+        // Random number from 0 to 8 for the array index
+        let random = Math.floor(Math.random() * 9);
         switch(cmd) {
 
             // !Gandalf
