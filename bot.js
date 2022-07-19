@@ -1,6 +1,5 @@
 var Discord = require('discord.io');
 var logger = require('winston');
-var auth = require('./auth.json');
 const { MessageEmbed } = require('discord.js');
 // Configure logger settings
 logger.remove(logger.transports.Console);
@@ -11,7 +10,7 @@ logger.level = 'debug';
 
 // Initialize Discord Bot
 var bot = new Discord.Client({
-token: auth.token,
+token: process.env.SECRET,
 autorun: true
 });
 
